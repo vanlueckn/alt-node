@@ -1,10 +1,6 @@
 name: Build & deploy
 on:
-  push:
-    tags:
-      - 'dev/*'
-      - 'rc/*'
-      - 'release/*'
+  push
 
 jobs:
   build-linux-release:
