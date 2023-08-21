@@ -19,15 +19,12 @@ jobs:
 
       - name: Build
         run: |
-          cd alt-build && bash alt-release.sh
-          cd ..
           mkdir dist
-          cp ./out/Release/libnodev2.so dist/libnodev2.so
 
       - name: Build aarch64
         run: |
           sudo apt-get install cmake build-essential binutils-aarch64-linux-gnu gcc-aarch64-linux-gnu g++-aarch64-linux-gnu python3 make python3-pip
-          ln -s /usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1 /lib/ld-linux-aarch64.so.1
+          sudo ln -s /usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1 /lib/ld-linux-aarch64.so.1
           chmod +rwx alt-build/alt-release-aarch64.sh
           cd alt-build && bash alt-release-aarch64.sh
           cd ..
